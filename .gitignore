@@ -2,4 +2,4 @@
 build/server.crt
 .vscode/
 .DS_Store
-
+.circleci
