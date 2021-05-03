@@ -39,8 +39,26 @@ workflows:
             branches:
               ignore:
                 - main
+                - uatSandbox
+                - qaSandbox
+                - devSandbox
       - deploy-prod:
           filters:
             branches:
               only:
                 - main
+      - deploy-uat:
+          filters:
+            branches:
+              only:
+                - uatSandbox
+      - deploy-qa:
+          filters:
+            branches:
+              only:
+                - qaSandbox
+      - deploy-dev:
+          filters:
+            branches:
+              only:
+                - devSandbox
