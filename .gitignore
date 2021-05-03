@@ -3,3 +3,4 @@ build/server.crt
 .vscode/
 .DS_Store
 .circleci
+config.yml
