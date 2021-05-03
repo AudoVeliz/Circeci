@@ -16,7 +16,7 @@ jobs:
           command: . build/test.sh
       - store_test_results:
           path: test-results
-  deploy-dev:
+  deploy-uat:
     docker:
     - image: circleci/node:latest
     steps:
@@ -38,27 +38,9 @@ workflows:
           filters:
             branches:
               ignore:
-                - main
                 - uatSandbox
-                - qaSandbox
-                - devSandbox
-      - deploy-prod:
-          filters:
-            branches:
-              only:
-                - main
       - deploy-uat:
           filters:
             branches:
               only:
                 - uatSandbox
-      - deploy-qa:
-          filters:
-            branches:
-              only:
-                - qaSandbox
-      - deploy-dev:
-          filters:
-            branches:
-              only:
-                - devSandbox
