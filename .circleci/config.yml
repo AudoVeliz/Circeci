@@ -16,7 +16,7 @@ jobs:
           command: . build/test.sh
       - store_test_results:
           path: test-results
-  deploy-prod:
+  deploy-dev:
     docker:
     - image: circleci/node:latest
     steps:
