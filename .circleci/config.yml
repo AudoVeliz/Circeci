@@ -16,7 +16,7 @@ jobs:
           command: . build/test.sh
       - store_test_results:
           path: test-results
-  deploy-dev:
+  deploy-prod:
     docker:
     - image: circleci/node:latest
     steps:
@@ -30,6 +30,48 @@ jobs:
       - run:
           name: Deploy to Production
           command: . build/deploy-prod.sh
+  deploy-uat:
+    docker:
+    - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: . build/install.sh
+      - run:
+          name: Login to Production
+          command: . build/setup-uat.sh
+      - run:
+          name: Deploy to Production
+          command: . build/deploy-uat.sh
+  deploy-qa:
+    docker:
+    - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: . build/install.sh
+      - run:
+          name: Login to Production
+          command: . build/setup-qa.sh
+      - run:
+          name: Deploy to Production
+          command: . build/deploy-qa.sh
+  deploy-dev:
+    docker:
+    - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: . build/install.sh
+      - run:
+          name: Login to Production
+          command: . build/setup-dev.sh
+      - run:
+          name: Deploy to Production
+          command: . build/deploy-dev.sh
 workflows:
   version: 2
   validate:
