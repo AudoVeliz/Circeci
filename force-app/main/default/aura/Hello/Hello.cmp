@@ -1,6 +1,6 @@
 <aura:component implements="flexipage:availableForAllPageTypes">
         
     <div class="slds-p-around_small">
-        from Dev Sandbox
+        cambio desde DEv branch merge
     </div>
 </aura:component>
