@@ -6,4 +6,4 @@ echo "Deploying to production & running all tests..."
 sfdx force:mdapi:deploy -u DevHub -d deploy_prod/ -w -1 -l RunAllTestsInOrg
 
 #we could add a command to delete a sandbox inhere. 
-#sfdx force:org:delete -u DevHub
+sfdx force:org:delete -u DevHub
